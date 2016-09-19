@@ -1,6 +1,7 @@
 package company;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -20,5 +21,11 @@ public class Main {
         cocheList.add(BMW);
 
         System.out.println(cocheList.get(0));
+
+        HashMap<String, coche> BMW = new HashMap<String, coche>();
+        BMWMap.put(BMW.getmatricula(), BMW);
+
+
+        Map<String, coche> stringcocheMap = new
     }
 }
