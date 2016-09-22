@@ -1,4 +1,5 @@
 package company;
+
 public class Persona {
 
     private String dni = "" ;
@@ -10,7 +11,7 @@ public class Persona {
 
     public Persona(){}
 
-    public Persona(String dni, int nsocial, String nombre, String apellidos, int edad, int salario) {
+    public Persona(String dni, String nsocial, String nombre, String apellidos, int edad, double salario) {
         this.dni = dni;
         this.nsocial = nsocial;
         this.nombre = nombre;
@@ -27,11 +28,11 @@ public class Persona {
         this.dni = dni;
     }
 
-    public int getNsocial() {
+    public String getNsocial() {
         return nsocial;
     }
 
-    public void setNsocial(int nsocial) {
+    public void setNsocial(String nsocial) {
         this.nsocial = nsocial;
     }
 
@@ -59,7 +60,7 @@ public class Persona {
         this.edad = edad;
     }
 
-    public int getSalario() {
+    public double getSalario() {
         return salario;
     }
 

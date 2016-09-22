@@ -1,57 +1,111 @@
 
 package company;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class SeguridadSocial {
 
-    private List&lt;Persona&gt; personasList;
+    private List<Persona> personasList;
 
     public SeguridadSocial() {
-
-        personasList = new ArrayList&lt;&gt;();
-
+        personasList = new ArrayList<>();
     }
 
-// Debes comprobar que no se introduzcan dos personas con el mismo DNI/Número Seguridad Social
-
+    // Debes comprobar que no se introduzcan dos personas con el mismo DNI/Número Seguridad Social
     public void altaPersona(Persona persona) {
 
+        boolean check = false;
+        for(int i = 0;i < personasList.size();i++){
+            if (personasList.get(i).getDni().equals(persona.getDni()) || personasList.get(i).getNsocial().equals(persona.getNsocial())) {
+                System.out.println("Esta persona ya existe");
+                i = personasList.size();
+                check = true;
+            }
+        }
+        if(check == false) {
+            personasList.add(persona);
+        }
     }
 
-    public void bajaPersona(String dni) {
+    public void bajaPersona(String dni, Persona persona) {
 
+        for(int i = 0;i < personasList.size();i++) {
+
+            if(personasList.get(i).getDni().equals(persona.getDni()) || personasList.get(i).getNsocial().equals(persona.getNsocial())){
+                personasList.remove(i);
+                i = personasList.size();
+            }
+        }
     }
 
-    public Persona obtenerPersonaPorDNI(String dni) {
+    public Persona obtenerPersonaPorDNI(String dni, Persona persona) {
 
+        Persona persona2 = new Persona();
+        boolean check = false;
+
+        for(int i = 0; i < personasList.size();i++){
+
+            if(personasList.get(i).getDni().equals(persona.getDni())){
+                persona2 = personasList.get(i);
+                check = true;
+            }
+        }
+        if(!check){
+            System.out.println("No coincide");
+            return persona;
+        }
+        else{
+            return persona2;
+        }
     }
 
-    public Persona obtenerPersonaPorNumSS(String numSS) {
+    public Persona obtenerPersonaPorNumSS(String numSS, Persona persona) {
 
+        Persona persona2 = new Persona();
+        boolean check = false;
+
+        for(int i = 0; i < personasList.size();i++){
+
+            if(personasList.get(i).getDni().equals(numSS)){
+                persona2 = personasList.get(i);
+                check = true;
+            }
+        }
+        if(!check){
+            System.out.println("No coincide");
+            return persona;
+        }
+        else{
+            return persona2;
+        }
     }
 
-    public List&lt;Persona&gt; obtenerPersonasRangoSalarial(double min, double max){
 
+    public List<Persona> obtenerPersonasRangoSalarial(double min, double max){
+
+        List<Persona> Scoincidencia;
+        Scoincidencia = new ArrayList<>();
+        Persona persona;
+
+        for (int i=0; i<personasList.size();i++){
+
+            persona = personasList.get(i);
+
+            if(persona.getSalario() <=max || persona.getSalario() >= min){
+                Scoincidencia = persona;
+            }
+
+        }
     }
 
-    public List&lt;Persona&gt; obtenerPersonasMayoresQue(int edad){
-
+    public List<Persona> obtenerPersonasMayoresQue(int edad){
     }
 
-    public List&lt;Persona&gt; obtenerTodas(){
-
+    public List<Persona> obtenerTodas(){
     }
 
     @Override
-
-    public String toString() {
-
-        return &quot;SeguridadSocial{&quot; +
-
-                &quot;personasList=&quot; + personasList +
-
-                &#39;}&#39;;
-
+    public String toString() {return "SeguridadSocial{" + "personasList=" + personasList + '}';
     }
-
 }
