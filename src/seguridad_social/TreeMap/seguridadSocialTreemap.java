@@ -1,33 +1,32 @@
-package seguridad_social;
+package seguridad_social.TreeMap;
+
+import seguridad_social.Persona;
 
 import java.util.*;
 
-/**
- * Created by Alan on 23/09/2016.
- */
-public class seguridadSocialHashmap {
+public class seguridadSocialTreemap {
 
-    private  Map<String, Persona> personaMapDni = new HashMap<>();
-    private Map<String,Persona> personaMapSs = new HashMap<>();
+    private Map<String, Persona> personaMapDni = new TreeMap<>();
+    private Map<String, Persona> personaMapSs = new TreeMap<>();
 
-    public void altaPersona(Persona persona){
+    public void altaPersona(Persona persona) {
 
-        if(!personaMapDni.containsKey(persona.getDni()) && !personaMapSs.containsKey(persona.getNsocial())){
+        if (!personaMapDni.containsKey(persona.getDni()) && !personaMapSs.containsKey(persona.getNsocial())) {
 
-            personaMapDni.put(persona.getDni(),persona);
-            personaMapSs.put(persona.getNsocial(),persona);
+            personaMapDni.put(persona.getDni(), persona);
+            personaMapSs.put(persona.getNsocial(), persona);
         }
     }
 
-    public void bajaPersona(Persona persona){
-        if(personaMapDni.containsKey(persona.getDni()) && personaMapSs.containsKey(persona.getNsocial())){
+    public void bajaPersona(Persona persona) {
+        if (personaMapDni.containsKey(persona.getDni()) && personaMapSs.containsKey(persona.getNsocial())) {
 
             personaMapDni.remove(persona.getDni());
             personaMapSs.remove(persona.getNsocial());
         }
     }
 
-    public Persona obtenerPersonaporDni(String dni){
+    public Persona obtenerPersonaporDni(String dni) {
 
         //personaMapDni.remove(dni); Borrar algo en a BBDD
         //personaMapDni.values(); Coge todos los Values
@@ -39,16 +38,16 @@ public class seguridadSocialHashmap {
         return personaMapSs.get(numSS);
     }
 
-    public List<Persona> obtenerPersonasRangoSalarial(double min, double max){
+    public List<Persona> obtenerPersonasRangoSalarial(double min, double max) {
 
         List<Persona> rangos = new ArrayList<>();
 
         int i = personaMapDni.size();
 
-        for (int j = 0;j < i;j++){
+        for (int j = 0; j < i; j++) {
             Persona persona = personaMapDni.get(j);
 
-            if(persona.getSalario() >= min && persona.getSalario()<= max){
+            if (persona.getSalario() >= min && persona.getSalario() <= max) {
                 rangos.add(persona);
             }
         }
@@ -71,14 +70,12 @@ public class seguridadSocialHashmap {
         return rangos;
     }
 
-    public List<Persona> obtenerTodas(){
+    public List<Persona> obtenerTodas() {
 
 
-        for(String dni : personaMapDni.keySet()){
+        for (String dni : personaMapDni.keySet()) {
             System.out.println(dni);
         }
         return new ArrayList<>(personaMapDni.values());
     }
 }
-
-//joder

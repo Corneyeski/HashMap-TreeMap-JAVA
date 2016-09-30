@@ -1,11 +1,11 @@
-package seguridad_social;
+package seguridad_social.TreeMap;
 
-import seguridad_social.TreeMap.seguridadSocialTreemap;
+import seguridad_social.Persona;
 
-public class Main2 {
+public class MainTreeMap {
     public static void main(String[] args) {
 
-        SeguridadSocial seguridadSocial = new SeguridadSocial();
+        seguridadSocialTreemap seguridadSocial = new seguridadSocialTreemap();
 
         Persona jose = new Persona("39425364H", "111111111", "Jose", "Tomás", 35, 45000.00);
         Persona maria =  new Persona("39425654W", "33333333", "Maria", "Gallego", 55, 61300.20);
@@ -21,12 +21,12 @@ public class Main2 {
 
 
         System.out.println("Baja a la seguridad social: " + anna);
-        seguridadSocial.bajaPersona(anna.getNsocial(), anna.getDni());
+        seguridadSocial.bajaPersona(anna);
 
 
         System.out.println("Lista de afiliados a la S.S.: " + seguridadSocial.obtenerTodas());
 
-        System.out.println("obtenerPersonaPorDNI: " + seguridadSocial.obtenerPersonaPorDNI(jose.getDni()));
+        System.out.println("obtenerPersonaPorDNI: " + seguridadSocial.obtenerPersonaporDni(jose.getDni()));
 
         System.out.println("obtenerPersonaPorNumSS: " + seguridadSocial.obtenerPersonaPorNumSS(maria.getNsocial()));
 
