@@ -1,4 +1,4 @@
-package company;
+package seguridad_social;
 
 public class Main2 {
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class Main2 {
 
 
         System.out.println("Baja a la seguridad social: " + anna);
-        seguridadSocial.bajaPersona(anna.getDni());
+        seguridadSocial.bajaPersona(anna.getNsocial(), anna.getDni());
 
 
         System.out.println("Lista de afiliados a la S.S.: " + seguridadSocial.obtenerTodas());

@@ -1,4 +1,4 @@
-package company;
+package seguridad_social;
 
 public class Persona {
 
@@ -68,5 +68,15 @@ public class Persona {
         this.salario = salario;
     }
 
-
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "dni='" + dni + '\'' +
+                ", nsocial='" + nsocial + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", edad=" + edad +
+                ", salario=" + salario +
+                '}';
+    }
 }
