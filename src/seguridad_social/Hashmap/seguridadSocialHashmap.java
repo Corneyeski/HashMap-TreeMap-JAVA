@@ -1,4 +1,6 @@
-package seguridad_social;
+package seguridad_social.Hashmap;
+
+import seguridad_social.Persona;
 
 import java.util.*;
 
