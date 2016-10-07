@@ -14,29 +14,34 @@ public class RegistroVehiculos {
 
     // Optional<Coche> es una nueva funcionalidad de Java 8 para evitar trabajar con null
     // Lo puedes omitir si trabajas con Java 7
-    public Coche obtenerVehiculo(String matricula) {
+    public Optional<Coche> obtenerVehiculo(String matricula) {
 
-        for (Coche coche : coches) {
+        return coches.stream().filter(coche -> coche.getMatricula().equals(matricula)).findFirst();
+
+     /*   for (Coche coche : coches) {
             if (coche.equals(matricula)) {
                 return coche;
             }
         }
-        return null;
+        return null; */
     }
 
     public void eliminarVehiculo(String matricula) {
         coches.remove(matricula);
     }
 
-    public Coche obtenerVehiculoPrecioMax() {
-        Coche coche = null;
+    public Optional<Coche> obtenerVehiculoPrecioMax() {
+
+        return coches.stream().max(Comparator.comparing(coche -> coche.getPrecio()));
+
+       /* Coche coche = null;
 
         for (Coche aux : coches) {
             if (aux.getPrecio() > coche.getPrecio()) {
                 coche.setPrecio(aux.getPrecio());
             }
         }
-        return coche;
+        return coche; */
     }
 
     public List<Coche> obtenerVehiculosMarca(String marca) {
